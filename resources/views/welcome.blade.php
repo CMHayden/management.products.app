@@ -42,6 +42,9 @@
 
             .content {
                 text-align: center;
+                background-color: #f0f0f0;
+                padding: 120px 20px;
+                width: 900px;
             }
 
             .title {
@@ -51,7 +54,7 @@
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
-                font-size: 13px;
+                font-size: 18px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
@@ -61,13 +64,72 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            .content {
+                animation: fadeIn ease 3s;
+                -webkit-animation: fadeIn ease 3s;
+                -moz-animation: fadeIn ease 3s;
+                -o-animation: fadeIn ease 3s;
+                -ms-animation: fadeIn ease 3s;
+                }
+
+
+                @keyframes fadeIn{
+                0% {
+                    opacity:0;
+                }
+                100% {
+                    opacity:1;
+                }
+                }
+
+                @-moz-keyframes fadeIn {
+                0% {
+                    opacity:0;
+                }
+                100% {
+                    opacity:1;
+                }
+                }
+
+                @-webkit-keyframes fadeIn {
+                0% {
+                    opacity:0;
+                }
+                100% {
+                    opacity:1;
+                }
+                }
+
+                @-o-keyframes fadeIn {
+                0% {
+                    opacity:0;
+                }
+                100% {
+                    opacity:1;
+                }
+                }
+
+                @-ms-keyframes fadeIn {
+                0% {
+                    opacity:0;
+                }
+                100% {
+                    opacity:1;
+                }
+                }
         </style>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
+
+            <div class="content">
+                <div class="title m-b-md">
+                    PM App
+                </div>
+
+                <div class="links">
+                @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
@@ -77,23 +139,8 @@
                         @endif
                     @endauth
                 </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
             </div>
+
         </div>
     </body>
 </html>
