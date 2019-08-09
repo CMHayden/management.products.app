@@ -1760,8 +1760,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('/api/viewkeys').then(function (response) {
         _this.key = response.data;
         var parsedobj = JSON.parse(JSON.stringify(_this.key));
-        console.log(parsedobj[0]);
-        console.log(_this.key);
+        console.log(parsedobj[0].apiKey);
         return response.data;
       });
     },
@@ -2022,9 +2021,6 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('/api/viewkeys').then(function (response) {
         _this.key = response.data;
-        var parsedobj = JSON.parse(JSON.stringify(_this.key));
-        console.log(parsedobj[0]);
-        console.log(_this.key);
         return response.data;
       });
     },
