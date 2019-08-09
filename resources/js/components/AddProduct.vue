@@ -67,9 +67,7 @@
                     .then(response => {
                         this.key = response.data;
                         var parsedobj = JSON.parse(JSON.stringify(this.key))
-                        console.log(parsedobj[0])
-
-                        console.log(this.key);
+                        console.log(parsedobj[0].apiKey)
                         return response.data
                     });
             },
