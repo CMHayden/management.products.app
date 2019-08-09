@@ -181,10 +181,6 @@
                 axios.get('/api/viewkeys')
                     .then(response => {
                         this.key = response.data;
-                        var parsedobj = JSON.parse(JSON.stringify(this.key))
-                        console.log(parsedobj[0])
-
-                        console.log(this.key);
                         return response.data
                     });
             },
