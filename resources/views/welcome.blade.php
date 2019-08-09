@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>PM App</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -15,7 +15,7 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
+                background-color: rgb(247, 247, 247);
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
@@ -63,16 +63,17 @@
 
             .content {
                 text-align: center;
-                background-color: #f0f0f0;
+                background-color: #ffffff;
                 padding: 120px 20px;
                 width: 900px;
                 border-radius: 20px;
+                box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
 
-                animation: fadeIn ease 5s;
-                -webkit-animation: fadeIn ease 5s;
-                -moz-animation: fadeIn ease 5s;
-                -o-animation: fadeIn ease 5s;
-                -ms-animation: fadeIn ease 5s;
+                animation: fadeIn ease 3.5s;
+                -webkit-animation: fadeIn ease 3.5s;
+                -moz-animation: fadeIn ease 3.5s;
+                -o-animation: fadeIn ease 3.5s;
+                -ms-animation: fadeIn ease 3.5s;
             }
 
             @keyframes fadeIn{
