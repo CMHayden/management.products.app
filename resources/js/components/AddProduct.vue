@@ -138,6 +138,7 @@
                     uPhone	test	test desc	111115	9
                     */
 
+
                     axios.post('/api/products', JSON.stringify(hot.getData()))
                         .then(response => {
                             if(response.status == 200) {
