@@ -36,6 +36,16 @@ Vue.component(
     require('./components/passport/PersonalAccessTokens.vue').default
 );
 
+Vue.component(
+    'api-key',
+    require('./components/ApiKey.vue').default
+);
+
+Vue.component(
+    'add-product',
+    require('./components/AddProduct.vue').default
+);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
