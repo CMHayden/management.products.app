@@ -140,7 +140,7 @@
 
                 <div class="links">
                 @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}">Settings</a>
                     @else
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
