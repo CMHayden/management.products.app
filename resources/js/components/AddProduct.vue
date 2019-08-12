@@ -66,8 +66,7 @@
                 axios.get('/api/viewkeys')
                     .then(response => {
                         this.key = response.data;
-                        var parsedobj = JSON.parse(JSON.stringify(this.key))
-                        console.log(parsedobj[0].apiKey)
+
                         return response.data
                     });
             },
@@ -146,12 +145,8 @@
                                 hot.clear();
                                 return 0;
                             }
-                            console.error("Unexpected error. Please contact Chris to fix it");
+                            console.error("Unexpected error. Please try again or contact support");
                         });
-
-
-                    console.log(hot.getData());
-                    console.log(JSON.stringify(hot.getData()));
                 });
             },
         }
