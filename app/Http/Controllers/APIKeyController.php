@@ -12,7 +12,7 @@ class APIKeyController extends Controller
         $userID = auth('api')->user()->id;
         $key = $request->getContent();
 
-        DB::insert('insert into api_keys (id, apiKey) values (?, ?)', [$userID, $key]);
+        DB::insert('insert into api_keys (user_id, apiKey) values (?, ?)', [$userID, $key]);
 
         return response()->json("It works", 200);
     }
@@ -21,9 +21,19 @@ class APIKeyController extends Controller
 
         $userID = auth('api')->user()->id;
 
-        $key = DB::select('select apiKey from api_keys where id = ?', [$userID]);
+        $key = DB::select('select apiKey from api_keys where user_id = ?', [$userID]);
 
         return response()->json($key, 200);
-        
+
+    }
+
+    function delete() {
+
+        $userID = auth('api')->user()->id;
+
+        DB::table('api_keys')->where('user_id', $userID)->delete();
+
+        return response()->json("Key removed", 200);
+
     }
 }
