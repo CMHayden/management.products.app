@@ -14,7 +14,7 @@
                             API Key
                         </span>
                         <span v-if="key.length > 0">
-                            API Links
+                            API Tokens
                         </span>
 
                         <a class="action-link" tabindex="-1" @click="showAddAPIKeyForm" v-if="key.length === 0">
@@ -29,13 +29,13 @@
                         You have not added any API Keys.
                     </p>
 
-                    <!-- Link to handsontable -->
+                    <!-- API Tokens options -->
                     <table class="table table-borderless mb-0" v-if="key.length > 0">
                         <tbody>
                             <tr>
                                 <td style="vertical-align: middle;">
-                                    <a class="action-link text-primary" href="/addproduct">
-                                        Add a new product
+                                    <a class="action-link text-primary" href="#" @click="del">
+                                        Remove key
                                     </a>
                                 </td>
                             </tr>
@@ -215,6 +215,23 @@
                 $('#modal-add-api-key').modal('hide');
 
             },
+
+            /**
+             * Delete API Key
+             */
+            del() {
+
+                axios.get('/api/removekey', 1)
+                    .then(response => {
+                        if(response.status == 200) {
+                            this.key = '';
+                            alert("Key removed");
+                            return 1
+                        }
+                        alert("Error: " + response.status);
+                    });
+
+            }
         }
     }
 </script>
