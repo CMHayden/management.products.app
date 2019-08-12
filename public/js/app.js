@@ -1759,8 +1759,6 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('/api/viewkeys').then(function (response) {
         _this.key = response.data;
-        var parsedobj = JSON.parse(JSON.stringify(_this.key));
-        console.log(parsedobj[0].apiKey);
         return response.data;
       });
     },
@@ -1825,10 +1823,8 @@ __webpack_require__.r(__webpack_exports__);
             return 0;
           }
 
-          console.error("Unexpected error. Please contact Chris to fix it");
+          console.error("Unexpected error. Please try again or contact support");
         });
-        console.log(hot.getData());
-        console.log(JSON.stringify(hot.getData()));
       });
     }
   }
@@ -2052,6 +2048,23 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
       $('#modal-add-api-key').modal('hide');
+    },
+
+    /**
+     * Delete API Key
+     */
+    del: function del() {
+      var _this3 = this;
+
+      axios.get('/api/removekey', 1).then(function (response) {
+        if (response.status == 200) {
+          _this3.key = '';
+          alert("Key removed");
+          return 1;
+        }
+
+        alert("Error: " + response.status);
+      });
     }
   }
 });
@@ -39091,7 +39104,7 @@ var render = function() {
               _vm.key.length > 0
                 ? _c("span", [
                     _vm._v(
-                      "\n                        API Links\n                    "
+                      "\n                        API Tokens\n                    "
                     )
                   ])
                 : _vm._e(),
@@ -39126,7 +39139,27 @@ var render = function() {
           _vm._v(" "),
           _vm.key.length > 0
             ? _c("table", { staticClass: "table table-borderless mb-0" }, [
-                _vm._m(0)
+                _c("tbody", [
+                  _c("tr", [
+                    _c("td", { staticStyle: { "vertical-align": "middle" } }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "action-link text-primary",
+                          attrs: { href: "#" },
+                          on: { click: _vm.del }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    Remove key\n                                "
+                          )
+                        ]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(0)
+                ])
               ])
             : _vm._e()
         ])
@@ -39245,36 +39278,17 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("tbody", [
-      _c("tr", [
-        _c("td", { staticStyle: { "vertical-align": "middle" } }, [
-          _c(
-            "a",
-            {
-              staticClass: "action-link text-primary",
-              attrs: { href: "/addproduct" }
-            },
-            [
-              _vm._v(
-                "\n                                    Add a new product\n                                "
-              )
-            ]
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("tr", [
-        _c("td", { staticStyle: { "vertical-align": "middle" } }, [
-          _c(
-            "a",
-            { staticClass: "action-link text-primary", attrs: { href: "#" } },
-            [
-              _vm._v(
-                "\n                                    Another option maybe remove product\n                                "
-              )
-            ]
-          )
-        ])
+    return _c("tr", [
+      _c("td", { staticStyle: { "vertical-align": "middle" } }, [
+        _c(
+          "a",
+          { staticClass: "action-link text-primary", attrs: { href: "#" } },
+          [
+            _vm._v(
+              "\n                                    Another option maybe remove product\n                                "
+            )
+          ]
+        )
       ])
     ])
   },
@@ -52729,15 +52743,14 @@ if (token) {
 /*!************************************************!*\
   !*** ./resources/js/components/AddProduct.vue ***!
   \************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AddProduct_vue_vue_type_template_id_57bf9ab9_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AddProduct.vue?vue&type=template&id=57bf9ab9&scoped=true& */ "./resources/js/components/AddProduct.vue?vue&type=template&id=57bf9ab9&scoped=true&");
 /* harmony import */ var _AddProduct_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AddProduct.vue?vue&type=script&lang=js& */ "./resources/js/components/AddProduct.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _AddProduct_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _AddProduct_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _AddProduct_vue_vue_type_style_index_0_id_57bf9ab9_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AddProduct.vue?vue&type=style&index=0&id=57bf9ab9&scoped=true&lang=css& */ "./resources/js/components/AddProduct.vue?vue&type=style&index=0&id=57bf9ab9&scoped=true&lang=css&");
+/* empty/unused harmony star reexport *//* harmony import */ var _AddProduct_vue_vue_type_style_index_0_id_57bf9ab9_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AddProduct.vue?vue&type=style&index=0&id=57bf9ab9&scoped=true&lang=css& */ "./resources/js/components/AddProduct.vue?vue&type=style&index=0&id=57bf9ab9&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -52769,7 +52782,7 @@ component.options.__file = "resources/js/components/AddProduct.vue"
 /*!*************************************************************************!*\
   !*** ./resources/js/components/AddProduct.vue?vue&type=script&lang=js& ***!
   \*************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
